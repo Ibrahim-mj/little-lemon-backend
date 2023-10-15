@@ -1,7 +1,7 @@
-#Food Ordering App Backend
+# Food Ordering App Backend
 This is the backend for a food ordering app that allows customers to add and delete items to their carts, and managers to assign deliveries to members of the delivery crew. Customers should be able to see the status of their orders and delivery crew members should be able to see the orders they need to deliver. All users should be able to see the menu items available for ordering.
 
-##Key Features
+## Key Features
 - Customers can add and delete items to their carts
 - Managers can assign deliveries to members of the delivery crew
 - Customers can see the status of their orders
@@ -9,7 +9,7 @@ This is the backend for a food ordering app that allows customers to add and del
 - All users can see the menu items available for ordering
 - Three different user types with different permissions: customers, managers, and delivery crew members
 
-##Technologies
+## Technologies
 - Python
 - Django
 - Django REST Framework

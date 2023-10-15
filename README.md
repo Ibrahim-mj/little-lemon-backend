@@ -15,5 +15,5 @@ This is the backend for a food ordering app that allows customers to add and del
 - Django REST Framework
 - Djoser (for authentication)
 
-##Status of Project
+## Status of Project
 This project is currently in development. User can be created and authenticated, Menu items can be created and viewed, but the functionality for adding and removing items from carts, assigning deliveries to members of the delivery crew, and seeing the status of orders and the menu items available for ordering is still in progress.

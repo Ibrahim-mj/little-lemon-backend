@@ -50,6 +50,18 @@ INSTALLED_APPS = [
 
     # my_apps
     'Orders.apps.OrdersConfig',
+    'Users.apps.UsersConfig',
+    'menu_items.apps.ProductsConfig',
+
+    # possible future apps
+    # 'Categories.apps.CategoriesConfig',
+    # 'Reviews.apps.ReviewsConfig',
+    # 'Cart.apps.CartConfig',
+    # 'Wishlist.apps.WishlistConfig',
+    # 'Addresses.apps.AddressesConfig',
+    # 'Payment.apps.PaymentConfig',
+    # 'Coupons.apps.CouponsConfig',
+
 ]
 
 MIDDLEWARE = [

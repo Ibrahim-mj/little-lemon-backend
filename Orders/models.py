@@ -1,12 +1,15 @@
 from django.db import models
+
 from menu_items.models import MenuItem
+from Users.models import User
+
 
 class Cart(models.Model):
     """
     A model representing a shopping cart for a user.
     """
     items = models.ManyToManyField(MenuItem, through='CartItem', related_name='order_item')
-    owner = models.ForeignKey('auth.User', related_name='cart', on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, related_name='cart', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)

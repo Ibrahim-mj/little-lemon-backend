@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     # my_apps
     'Orders.apps.OrdersConfig',
     'Users.apps.UsersConfig',
-    'menu_items.apps.ProductsConfig',
+    'menu_items.apps.MenuItemsConfig',
 
     # possible future apps
     # 'Categories.apps.CategoriesConfig',

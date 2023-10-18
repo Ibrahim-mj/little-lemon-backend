@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-c535jldhef2+y8m91%d@519ilfu9)u9c@4m*=xst(#5ovrh4p('
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -41,7 +46,7 @@ INSTALLED_APPS = [
     # third-party apps
     'rest_framework',
     'rest_framework.authtoken',
-    'djooser',
+    'djoser',
 
     # my_apps
     'Orders.apps.OrdersConfig',
@@ -82,9 +87,13 @@ WSGI_APPLICATION = 'LittleLemon.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+     "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        # "port":"3306",
+        # "HOST": config("DB_HOST")
     }
 }
 
@@ -125,8 +134,19 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+# cloudinary config for profile picture upload
+
+cloudinary.config(
+    cloud_name = config('CLOUDINARY_CLOUD_NAME'),
+    api_key = config('CLOUDINARY_API_KEY'),
+    api_secret = config('CLOUDINARY_API_SECRET')
+)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+AUTH_USER_MODEL = 'Users.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
